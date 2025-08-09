@@ -1,0 +1,133 @@
+Relatório Final: Análise de Evasão de Clientes (Churn) – Telecom X
+agosto de 2025
+
+Autor: Gemini, Assistente de Análise de Dados
+
+1. Introdução e Objetivo
+A Telecom X enfrenta um desafio significativo com uma alta taxa de evasão de clientes, conhecida como "churn". No entanto, as causas subjacentes a essa evasão não estavam claras. Fui contratado como assistente de análise de dados para realizar a primeira fase crucial do projeto: o processo de Extração, Transformação e Carregamento (ETL) e uma Análise Exploratória de Dados (EDA).
+
+O objetivo deste relatório é detalhar todo o processo executado, desde a obtenção e limpeza dos dados até a identificação de padrões e perfis de clientes propensos a cancelar o serviço. As conclusões aqui apresentadas servirão como base para que a equipa de Data Science possa desenvolver modelos preditivos e estratégias eficazes para a retenção de clientes.
+
+2. Processo de ETL (Extração, Transformação e Carregamento)
+O processo de ETL é a fundação de qualquer análise de dados confiável. As seguintes etapas foram executadas:
+
+Extração: Os dados brutos da empresa foram extraídos de um arquivo TelecomX_Data.json.
+
+Transformação e Limpeza: Os dados brutos foram convertidos num formato limpo e estruturado (telecom_data_cleaned.csv). As principais ações foram:
+
+Estruturação de Dados: O arquivo JSON foi convertido para um formato de tabela.
+
+Correção de Tipos de Dados: A coluna TotalCharges (Cobranças Totais) foi convertida para formato numérico.
+
+Tratamento de Dados Ausentes: 11 registos de clientes novos na coluna TotalCharges foram preenchidos com 0.
+
+Padronização de Valores: As respostas foram padronizadas para "Sim"/"Não" para garantir consistência.
+
+3. Análise Exploratória de Dados (EDA) e Principais Achados
+A taxa de churn geral da empresa é de 25,72%. Dos 7.267 clientes analisados, 1.869 cancelaram o serviço, enquanto 5.174 permaneceram.
+
+Achado 1: Contrato Mensal é o Grande Vilão
+O tipo de contrato é o principal fator de previsão de churn. Clientes sem um compromisso de longo prazo têm uma propensão muito maior a cancelar.
+
+Contrato Mensal:
+
+Clientes com Churn: 1.655
+
+Taxa de Churn: 42,7%
+
+Contrato Anual (One year):
+
+Clientes com Churn: 166
+
+Taxa de Churn: 11,3%
+
+Contrato de Dois Anos (Two year):
+
+Clientes com Churn: 48
+
+Taxa de Churn: 2,8%
+
+Achado 2: A "Zona de Perigo" está nos Primeiros Meses
+O tempo de permanência do cliente (tenure) está diretamente ligado ao tipo de contrato. A maioria dos cancelamentos ocorre no início da relação com o cliente.
+
+Mediana de tempo de contrato para clientes que cancelam: 10 meses
+
+Mediana de tempo de contrato para clientes que permanecem: 38 meses
+
+A análise mostra uma grande concentração de cancelamentos nos primeiros 12 meses de serviço.
+
+Achado 3: Clientes de Fibra Ótica e com Contas Mais Altas Cancelam Mais
+O serviço de Fibra Ótica e o valor da fatura são fatores críticos.
+
+Taxa de Churn por Serviço de Internet:
+
+Fibra Ótica: 41,9%
+
+DSL: 19,0%
+
+Sem Internet: 7,4%
+
+Distribuição da Cobrança Mensal:
+
+Mediana da cobrança mensal para clientes que cancelam: $79,65
+
+Mediana da cobrança mensal para clientes que permanecem: $64,43
+
+Achado 4: O Perfil Demográfico do Risco
+O perfil demográfico do cliente com maior risco é ser idoso, solteiro e sem dependentes.
+
+Idosos (SeniorCitizen):
+
+Taxa de Churn: 41,7% (vs. 23,6% para não idosos)
+
+Clientes sem Parceiro(a):
+
+Taxa de Churn: 33,0% (vs. 19,7% para clientes com parceiro/a)
+
+Clientes sem Dependentes:
+
+Taxa de Churn: 31,3% (vs. 15,5% para clientes com dependentes)
+
+Achado 5: Serviços de Proteção são Essenciais para a Retenção
+Serviços que oferecem segurança e suporte são fundamentais para a satisfação e lealdade do cliente, especialmente para quem usa Fibra Ótica.
+
+Segurança Online (OnlineSecurity):
+
+Taxa de Churn de quem NÃO TEM o serviço: 41,8%
+
+Taxa de Churn de quem TEM o serviço: 14,6%
+
+Suporte Técnico (TechSupport):
+
+Taxa de Churn de quem NÃO TEM o serviço: 41,6%
+
+Taxa de Churn de quem TEM o serviço: 15,2%
+
+Serviços de streaming (StreamingTV, StreamingMovies) não mostraram um impacto significativo na retenção.
+
+4. Conclusão Geral e Recomendações
+A análise exploratória permitiu a construção de um perfil claro do cliente com alta probabilidade de evasão:
+
+O cliente de maior risco é idoso, não tem parceiro(a) ou dependentes, possui um contrato mensal com poucos meses de duração, utiliza o serviço de Fibra Ótica com uma cobrança mensal elevada e não contratou serviços de proteção como Segurança Online ou Suporte Técnico.
+
+Com base nestes achados, as seguintes sugestões são oferecidas:
+
+Recomendações para a Telecom X (Ações de Negócio):
+
+Incentivos para Contratos de Longo Prazo: Criar campanhas agressivas para migrar clientes do plano mensal para os planos anuais, oferecendo descontos ou serviços adicionais.
+
+Atenção Especial aos Clientes de Fibra Ótica: Investigar a fundo a satisfação dos clientes de Fibra. Ofertar pacotes com Segurança Online e Suporte Técnico inclusos pode ser uma estratégia poderosa.
+
+Programa de Boas-vindas e Acompanhamento Inicial: Implementar um programa de acompanhamento proativo para clientes nos primeiros meses.
+
+Ofertas Personalizadas para Grupos de Risco: Desenvolver ofertas específicas para o público idoso e para clientes que vivem sozinhos.
+
+Próximos Passos para a Equipa de Data Science:
+
+Engenharia de Features: Usar os insights para criar novas variáveis que melhorem os modelos preditivos.
+
+Desenvolvimento de Modelos Preditivos: Treinar modelos de Machine Learning para prever a probabilidade de churn para cada cliente.
+
+Sistema de Alerta Precoce: Criar um sistema que alerte a equipa de retenção sobre clientes com alta probabilidade de cancelamento.
+
+Este trabalho estabeleceu uma base sólida para que a Telecom X possa compreender e, mais importante, agir para reduzir a sua taxa de evasão de clientes.
