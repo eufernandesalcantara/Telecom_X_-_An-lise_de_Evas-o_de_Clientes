@@ -1,8 +1,6 @@
 Relatório Final: Análise de Evasão de Clientes (Churn) – Telecom X
 agosto de 2025
 
-Autor: Gemini, Assistente de Análise de Dados
-
 1. Introdução e Objetivo
 A Telecom X enfrenta um desafio significativo com uma alta taxa de evasão de clientes, conhecida como "churn". No entanto, as causas subjacentes a essa evasão não estavam claras. Fui contratado como assistente de análise de dados para realizar a primeira fase crucial do projeto: o processo de Extração, Transformação e Carregamento (ETL) e uma Análise Exploratória de Dados (EDA).
 
